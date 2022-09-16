@@ -139,16 +139,16 @@ MaNGa_wave=MaNGa_wave[: len(MaNGa_wave) - 229]
 import random
 properties=[]
 for j in range(30):
-    df = pd.read_csv("/global/cscratch1/sd/marta_r/2021-10-10/_Multiprocessing/September/All_fits_nersc.csv")
+    df = pd.read_csv("/global/homes/m/marta_r/MaNGa_files/All_fits_nersc.csv")
     cd=random.randint(0,df[df.columns[0]].count())
     if 'Unnamed: 0' in df.columns:
         df = df.drop('Unnamed: 0', axis=1)
-        df.to_csv("/global/cscratch1/sd/marta_r/2021-10-10/_Multiprocessing/September/All_fits_nersc.csv")
+        df.to_csv("/global/homes/m/marta_r/MaNGa_files/All_fits_nersc.csv")
     for p in range (df[df.columns[0]].count()):
         #df = pd.read_csv("/global/homes/m/marta_r/Fitting_files/test2.csv")
         if cd <= (df[df.columns[0]].count())-1 and df.loc[cd, 'Validation'] == 0:
             df.loc[cd,'Validation'] ='1'
-            df.to_csv("/global/cscratch1/sd/marta_r/2021-10-10/_Multiprocessing/September/All_fits_nersc.csv", index=True)
+            df.to_csv("/global/homes/m/marta_r/MaNGa_files/All_fits_nersc.csv", index=True)
             z,ifu,ratio=df.loc[cd, 'redhsift'], df.loc[cd, 'Spectra'],df.loc[cd, 'ratio']
             rad,ba,phi=df.loc[cd,'radius'], df.loc[cd,'nsa_elpetro_ba'], df.loc[cd,'nsa_elpetro_phi']
             inner=[z,ifu,ratio,rad, ba, phi]
