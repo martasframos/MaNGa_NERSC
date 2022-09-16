@@ -159,6 +159,8 @@ for j in range(30):
             cd+=1
     properties.append(inner)
 def getting_data(i_obs):
+    import pandas as pd
+    import numpy as np
     os.environ['SAS_BASE_DIR'] = '/global/cfs/cdirs/sdss/data/sdss'
     radius=properties[i_obs][3]
     ifu_pl=properties[i_obs][1]
